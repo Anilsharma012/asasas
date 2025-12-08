@@ -192,13 +192,13 @@ export default function OLXStyleHeader() {
                       : "/notifications";
                   window.location.href = notificationPath;
                 }}
-                className="relative p-2 hover:bg-red-700 rounded-lg transition-colors text-white"
+                className="relative p-2 hover:bg-gray-800 rounded-lg transition-colors text-white"
                 aria-label="Notifications"
               >
                 <Bell className="h-6 w-6" />
                 {unread > 0 && (
                   <span
-                    className="absolute -top-1 -right-1 bg-white text-[#C70000] text-xs font-bold rounded-full h-5 min-w-[1.25rem] px-1 flex items-center justify-center"
+                    className="absolute -top-1 -right-1 bg-white text-gray-900 text-xs font-bold rounded-full h-5 min-w-[1.25rem] px-1 flex items-center justify-center"
                     title={`${unread} unread notifications`}
                     aria-label={`${unread} unread notifications`}
                   >
