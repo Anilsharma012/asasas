@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import { getDatabase } from "../db/mongodb";
 import { AdPackage, Transaction, ApiResponse } from "@shared/types";
 import { ObjectId, Db } from "mongodb";
+import { DEMO_PACKAGES } from "./demo-data";
 
 // Internal function to initialize packages
 async function initializePackagesInternal(db: Db) {
