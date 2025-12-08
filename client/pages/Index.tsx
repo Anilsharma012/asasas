@@ -70,6 +70,9 @@ export default function Index() {
         {/* Dynamic Categories (moved up as requested) */}
         <OLXStyleCategories />
 
+        {/* Fashion Product Carousel */}
+        <FashionProductCarousel />
+
         {/* Ad Slot: Below categories (CLS-safe) */}
         <div className="px-4 mt-4">
           <AdSlot format="horizontal" slotKey="below_categories" />
