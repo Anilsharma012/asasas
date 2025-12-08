@@ -44,24 +44,17 @@ const isMatch = (cat: Category, ...candidates: string[]) => {
 
 /** Special routes for specific category names/slugs */
 const ROUTE_OVERRIDES: Record<string, string> = {
-  "new-projects": "/new-projects",
-  maps: "/maps",
-  buy: "/buy",
-
-  sell: "/post-property",
-  rent: "/rent",
-  lease: "/lease",
-  "co-living": "/co-living",
-  agricultural: "/agricultural",
-  commercial: "/commercial",
-  "other-services": "/other-services/other-services",
+  men: "/men",
+  women: "/women",
+  kids: "/kids",
+  marco: "/marco-fashion",
 };
 
-/** Ye 3 categories hamesha show honi chahiye */
+/** Fashion categories that should always show */
 const MUST_HAVE_CATEGORIES: { name: string; slug: string }[] = [
-  { name: "Other Services", slug: "other-services" },
-  { name: "Maps", slug: "maps" },
-  { name: "New Projects", slug: "new-projects" },
+  { name: "Men", slug: "men" },
+  { name: "Women", slug: "women" },
+  { name: "Kids", slug: "kids" },
 ];
 
 /* ---------- Component ---------- */
