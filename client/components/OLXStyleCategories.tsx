@@ -9,18 +9,12 @@ import { withApiErrorBoundary } from "./ApiErrorBoundary";
 import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
 
-/* ---------- Icons map (fallback to Building2) ---------- */
+/* ---------- Icons map (fallback to Heart) ---------- */
 const categoryIcons: Record<string, any> = {
-  Cars: Car,
-  Properties: Building2,
-  Mobiles: Smartphone,
-  Jobs: Briefcase,
-  Fashion: Shirt,
-  Bikes: Bike,
-  "Electronics & Appliances": Tv,
-  "Commercial Vehicles & Spares": Truck,
-  Furniture: Sofa,
-  Pets: Heart,
+  Men: Users,
+  Women: User,
+  Kids: Baby,
+  Marco: Heart,
 };
 
 /* ---------- Types ---------- */
