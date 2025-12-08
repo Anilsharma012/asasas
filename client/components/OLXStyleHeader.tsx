@@ -286,7 +286,7 @@ export default function OLXStyleHeader() {
                           onClick={() => pickSuggestion(r)}
                           className="w-full text-left px-3 py-3 hover:bg-gray-50 rounded flex items-center space-x-2 min-h-11 whitespace-normal break-words"
                         >
-                          <MapPin className="h-4 w-4 text-[#C70000]" />
+                          <MapPin className="h-4 w-4 text-gray-600" />
                           <span className="text-gray-900">{r}</span>
                         </button>
                       ))}
@@ -311,7 +311,7 @@ export default function OLXStyleHeader() {
                             : "hover:bg-gray-50"
                         }`}
                       >
-                        <MapPin className="h-4 w-4 text-[#C70000]" />
+                        <MapPin className="h-4 w-4 text-gray-600" />
                         <span className="text-gray-900">{area}</span>
                       </button>
                     ))}
