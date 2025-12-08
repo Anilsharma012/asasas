@@ -81,7 +81,21 @@ async function initializePackagesInternal(db: Db) {
 // Get all advertisement packages
 export const getAdPackages: RequestHandler = async (req, res) => {
   try {
-    const db = getDatabase();
+    let db: any;
+    try {
+      db = getDatabase();
+    } catch (dbErr) {
+      // Database not initialized, return demo data
+      const response: ApiResponse<any[]> = {
+        success: true,
+        data: DEMO_PACKAGES as any,
+        meta: {
+          isDemo: true,
+        },
+      };
+      return res.json(response);
+    }
+
     const { category, location, activeOnly = "false", isActive } = req.query as any;
 
     const filter: any = {};
