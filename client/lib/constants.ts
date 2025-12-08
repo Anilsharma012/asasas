@@ -2,16 +2,16 @@
  * App-wide constants
  */
 
-// Ashish Properties Logo
-export const ASHISH_LOGO_URL = "/ashish-logo.png";
+// Marco Fashion Logo
+export const ASHISH_LOGO_URL = "/marco-logo.png";
 
 // Logo for footer/dark backgrounds
-export const ASHISH_LOGO_WHITE_URL = "/ashish-logo.png";
+export const ASHISH_LOGO_WHITE_URL = "/marco-logo-white.png";
 
 // Company brand colors
-export const BRAND_PRIMARY_COLOR = "#C70000"; // Red
+export const BRAND_PRIMARY_COLOR = "#1F2937"; // Dark Gray
 export const BRAND_SECONDARY_COLOR = "#FFFFFF"; // White
 
 // App name
-export const APP_NAME = "Ashish Properties";
-export const APP_DOMAIN = "ashish-properties.in";
+export const APP_NAME = "Marco Fashion";
+export const APP_DOMAIN = "marco-fashion.com";
