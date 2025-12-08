@@ -169,9 +169,9 @@ export const getActiveBanners: RequestHandler = async (req, res) => {
     try {
       db = getDatabase();
     } catch {
-      // DB not ready: return empty safely
+      // DB not ready: return demo banners
       res.set("Cache-Control", "no-store, no-cache, must-revalidate");
-      return res.json({ success: true, data: [] });
+      return res.json({ success: true, data: DEMO_BANNERS as any, meta: { isDemo: true } });
     }
 
     const { active, position, search = "", status, isFeatured } = req.query as {
