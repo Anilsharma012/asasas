@@ -65,7 +65,22 @@ async function ensureUniqueSlug(
 // PUBLIC: Get active categories with optional subcategories
 export const getCategories: RequestHandler = async (req, res) => {
   try {
-    const db = getDatabase();
+    let db: any;
+    try {
+      db = getDatabase();
+    } catch (dbErr) {
+      // Database not initialized, return demo data
+      const response: ApiResponse<any[]> = {
+        success: true,
+        data: DEMO_CATEGORIES,
+        meta: {
+          updatedAt: new Date().toISOString(),
+          isDemo: true,
+        },
+      };
+      return res.json(response);
+    }
+
     const { active, withSub } = req.query;
 
     // If client only wants active categories without subcategories, use simple in-memory cache
