@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
-  Car,
-  Building2,
-  Smartphone,
-  Briefcase,
-  Shirt,
-  Bike,
-  Tv,
-  Truck,
-  Sofa,
+  Users,
+  User,
+  Baby,
   Heart,
 } from "lucide-react";
 import { withApiErrorBoundary } from "./ApiErrorBoundary";
