@@ -6,6 +6,7 @@ import { ObjectId } from "mongodb";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import { DEMO_BANNERS } from "./demo-data";
 
 /* =========================
    Uploads setup (disk)
