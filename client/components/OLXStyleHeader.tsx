@@ -122,7 +122,7 @@ export default function OLXStyleHeader() {
   };
 
   return (
-    <header className="bg-[#C70000] border-b border-red-800 sticky top-0 z-40">
+    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-40">
       <div
         className={`px-4 transition-all duration-300 ${isLandscape && isLandscapeCollapsed ? "py-2" : "py-3"}`}
       >
