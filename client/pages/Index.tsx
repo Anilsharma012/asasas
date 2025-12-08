@@ -86,7 +86,7 @@ export default function Index() {
           <OLXStyleListings />
         </div>
 
-        <div className="bg-red-50 py-8">
+        <div className="bg-gray-50 py-8">
           <PackagesShowcase />
         </div>
       </main>
