@@ -149,7 +149,7 @@ function OLXStyleCategories() {
     navigate(`/${finalSlug}`);
   };
 
-  const handleSellClick = () => navigate("/post-property");
+  const handleSellClick = () => navigate("/sell-item");
 
   /* ---------- Loading skeleton ---------- */
   if (loading) {
