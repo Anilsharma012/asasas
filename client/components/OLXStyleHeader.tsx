@@ -177,7 +177,7 @@ export default function OLXStyleHeader() {
           <div className="absolute right-0 flex items-center gap-2">
             <button
               onClick={handleFavoritesClick}
-              className="p-2 hover:bg-red-700 rounded-lg transition-colors text-white"
+              className="p-2 hover:bg-gray-800 rounded-lg transition-colors text-white"
               aria-label="Wishlist"
             >
               <Heart className="h-6 w-6" />
