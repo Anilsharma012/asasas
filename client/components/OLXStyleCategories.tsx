@@ -178,7 +178,7 @@ function OLXStyleCategories() {
             if (!category?.name) return null;
 
             const IconComponent =
-              categoryIcons[category.name] || Building2;
+              categoryIcons[category.name] || Heart;
             const isActive = activeCat?.slug === category.slug;
 
             const isSell =
