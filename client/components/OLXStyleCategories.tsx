@@ -202,10 +202,10 @@ function OLXStyleCategories() {
               >
                 <div
                   className={`w-14 h-14 ${
-                    isActive ? "bg-red-100" : "bg-red-50"
-                  } border border-red-100 rounded-lg flex items-center justify-center mb-2 hover:bg-red-100 transition-colors`}
+                    isActive ? "bg-gray-200" : "bg-gray-100"
+                  } border border-gray-200 rounded-lg flex items-center justify-center mb-2 hover:bg-gray-200 transition-colors`}
                 >
-                  <IconComponent className="h-7 w-7 text-[#C70000]" />
+                  <IconComponent className="h-7 w-7 text-gray-800" />
                 </div>
                 <span className="text-xs text-gray-800 text-center font-medium leading-tight">
                   {category.name.length > 12
