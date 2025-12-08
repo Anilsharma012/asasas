@@ -24,7 +24,7 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
         },
         brand: {
-          red: "#C70000",
+          dark: "#1F2937",
           white: "#FFFFFF",
         },
         secondary: {
