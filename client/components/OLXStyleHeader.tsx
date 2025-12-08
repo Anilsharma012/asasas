@@ -256,7 +256,7 @@ export default function OLXStyleHeader() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-200" />
                 <input
                   type="text"
-                  placeholder="Search properties in Rohtak..."
+                  placeholder="Search fashion items..."
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
