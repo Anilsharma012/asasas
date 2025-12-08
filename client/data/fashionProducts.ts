@@ -22,7 +22,8 @@ export const DEMO_FASHION_PRODUCTS: FashionProduct[] = [
     title: "Premium Cotton T-Shirt",
     category: "Men",
     price: 499,
-    description: "Comfortable and stylish 100% cotton t-shirt for everyday wear",
+    description:
+      "Comfortable and stylish 100% cotton t-shirt for everyday wear",
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop",
     ],

@@ -96,7 +96,12 @@ export const getAdPackages: RequestHandler = async (req, res) => {
       return res.json(response);
     }
 
-    const { category, location, activeOnly = "false", isActive } = req.query as any;
+    const {
+      category,
+      location,
+      activeOnly = "false",
+      isActive,
+    } = req.query as any;
 
     const filter: any = {};
 

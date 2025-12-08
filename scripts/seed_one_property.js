@@ -1,8 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 
 async function run() {
-  const url =
-    "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom";
+  const url = "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom";
   const client = new MongoClient(url);
   try {
     await client.connect();

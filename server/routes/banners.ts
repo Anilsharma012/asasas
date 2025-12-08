@@ -21,7 +21,9 @@ if (!fs.existsSync(UPLOAD_DIR)) {
 // Safe filename util
 const safeExt = (orig = "") => {
   const ext = path.extname(orig || "").toLowerCase();
-  return [".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".avif"].includes(ext)
+  return [".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".avif"].includes(
+    ext,
+  )
     ? ext
     : ".jpg";
 };
@@ -30,7 +32,7 @@ const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
   filename: (_req, file, cb) => {
     const name = `${Date.now()}-${Math.round(Math.random() * 1e9)}${safeExt(
-      file.originalname
+      file.originalname,
     )}`;
     cb(null, name);
   },
@@ -53,8 +55,7 @@ export const uploadBannerImage = upload.single("image");
    Helpers
 ========================= */
 
-const toBool = (v: any) =>
-  v === true || v === "true" || v === "1" || v === 1;
+const toBool = (v: any) => v === true || v === "true" || v === "1" || v === 1;
 
 const buildSearchFilter = (search?: string) => {
   if (!search) return {};
@@ -77,7 +78,9 @@ function normalizeKnownHosts(u: string): string {
     const url = new URL(u);
     if (url.hostname === "images.pexels.com") {
       // Accept …/photos/<id>/<anything>.(jpg|jpeg|png|webp)
-      const m = url.pathname.match(/^\/photos\/(\d+)\/[^/]+\.(?:jpe?g|png|webp)$/i);
+      const m = url.pathname.match(
+        /^\/photos\/(\d+)\/[^/]+\.(?:jpe?g|png|webp)$/i,
+      );
       if (m) {
         const id = m[1];
         url.pathname = `/photos/${id}/pexels-photo-${id}.jpeg`;
@@ -103,7 +106,11 @@ function forceExtimgProxy(raw?: string | null): string | null {
   if (!u) return null;
 
   // already local uploads
-  if (u.startsWith("/uploads/") || u.startsWith("/server/uploads/") || /^\.?\/?uploads\//i.test(u)) {
+  if (
+    u.startsWith("/uploads/") ||
+    u.startsWith("/server/uploads/") ||
+    /^\.?\/?uploads\//i.test(u)
+  ) {
     return u
       .replace(/^\.?\/?/i, "/")
       .replace(/^\/server\/uploads\//i, "/uploads/");
@@ -171,10 +178,20 @@ export const getActiveBanners: RequestHandler = async (req, res) => {
     } catch {
       // DB not ready: return demo banners
       res.set("Cache-Control", "no-store, no-cache, must-revalidate");
-      return res.json({ success: true, data: DEMO_BANNERS as any, meta: { isDemo: true } });
+      return res.json({
+        success: true,
+        data: DEMO_BANNERS as any,
+        meta: { isDemo: true },
+      });
     }
 
-    const { active, position, search = "", status, isFeatured } = req.query as {
+    const {
+      active,
+      position,
+      search = "",
+      status,
+      isFeatured,
+    } = req.query as {
       active?: string;
       position?: string;
       search?: string;
@@ -196,7 +213,10 @@ export const getActiveBanners: RequestHandler = async (req, res) => {
 
     const banners = raw.map(mapBannerOut);
 
-    const response: ApiResponse<BannerAd[]> = { success: true, data: banners as BannerAd[] };
+    const response: ApiResponse<BannerAd[]> = {
+      success: true,
+      data: banners as BannerAd[],
+    };
     res.set("Cache-Control", "no-store, no-cache, must-revalidate");
     res.json(response);
   } catch (error) {
@@ -231,7 +251,10 @@ export const getAllBanners: RequestHandler = async (req, res) => {
     };
 
     const pageNum = Math.max(parseInt(page as string) || 1, 1);
-    const limitNum = Math.min(Math.max(parseInt(limit as string) || 10, 1), 100);
+    const limitNum = Math.min(
+      Math.max(parseInt(limit as string) || 10, 1),
+      100,
+    );
     const skip = (pageNum - 1) * limitNum;
 
     const filter: any = { ...buildSearchFilter(search) };
@@ -284,8 +307,20 @@ export const getAllBanners: RequestHandler = async (req, res) => {
 export const createBanner: RequestHandler = async (req, res) => {
   try {
     const db = getDatabase();
-    const { title, imageUrl, link = "", isActive = true, sortOrder, position, status = "approved", isFeatured = false } =
-      req.body as Partial<BannerAd> & { position?: string; status?: string; isFeatured?: boolean };
+    const {
+      title,
+      imageUrl,
+      link = "",
+      isActive = true,
+      sortOrder,
+      position,
+      status = "approved",
+      isFeatured = false,
+    } = req.body as Partial<BannerAd> & {
+      position?: string;
+      status?: string;
+      isFeatured?: boolean;
+    };
 
     if (!title || !imageUrl) {
       return res.status(400).json({
@@ -294,7 +329,12 @@ export const createBanner: RequestHandler = async (req, res) => {
       });
     }
 
-    const bannerData: Omit<BannerAd, "_id"> & { createdAt: Date; position?: string; status?: string; isFeatured?: boolean } = {
+    const bannerData: Omit<BannerAd, "_id"> & {
+      createdAt: Date;
+      position?: string;
+      status?: string;
+      isFeatured?: boolean;
+    } = {
       title: String(title).trim(),
       imageUrl: String(imageUrl).trim(),
       link: String(link || "").trim(),
@@ -312,7 +352,10 @@ export const createBanner: RequestHandler = async (req, res) => {
       success: true,
       data: {
         _id: result.insertedId.toString(),
-        banner: { ...bannerData, _id: result.insertedId.toString() } as BannerAd,
+        banner: {
+          ...bannerData,
+          _id: result.insertedId.toString(),
+        } as BannerAd,
       },
     };
 
@@ -332,11 +375,25 @@ export const updateBanner: RequestHandler = async (req, res) => {
     const { id } = req.params;
 
     if (!ObjectId.isValid(id)) {
-      return res.status(400).json({ success: false, error: "Invalid banner ID" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid banner ID" });
     }
 
-    const { title, imageUrl, link, isActive, sortOrder, position, status, isFeatured } =
-      req.body as Partial<BannerAd> & { position?: string; status?: string; isFeatured?: boolean };
+    const {
+      title,
+      imageUrl,
+      link,
+      isActive,
+      sortOrder,
+      position,
+      status,
+      isFeatured,
+    } = req.body as Partial<BannerAd> & {
+      position?: string;
+      status?: string;
+      isFeatured?: boolean;
+    };
 
     const updateData: any = {};
     if (title !== undefined) updateData.title = String(title).trim();
@@ -349,7 +406,9 @@ export const updateBanner: RequestHandler = async (req, res) => {
     if (isFeatured !== undefined) updateData.isFeatured = Boolean(isFeatured);
 
     if (Object.keys(updateData).length === 0) {
-      return res.status(400).json({ success: false, error: "No fields to update" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No fields to update" });
     }
 
     const result = await db
@@ -357,7 +416,9 @@ export const updateBanner: RequestHandler = async (req, res) => {
       .updateOne({ _id: new ObjectId(id) }, { $set: updateData });
 
     if (result.matchedCount === 0) {
-      return res.status(404).json({ success: false, error: "Banner not found" });
+      return res
+        .status(404)
+        .json({ success: false, error: "Banner not found" });
     }
 
     const updatedBanner = await db
@@ -385,7 +446,9 @@ export const deleteBanner: RequestHandler = async (req, res) => {
     const { id } = req.params;
 
     if (!ObjectId.isValid(id)) {
-      return res.status(400).json({ success: false, error: "Invalid banner ID" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid banner ID" });
     }
 
     const result = await db
@@ -393,7 +456,9 @@ export const deleteBanner: RequestHandler = async (req, res) => {
       .deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 0) {
-      return res.status(404).json({ success: false, error: "Banner not found" });
+      return res
+        .status(404)
+        .json({ success: false, error: "Banner not found" });
     }
 
     const response: ApiResponse<{ message: string }> = {
@@ -415,7 +480,9 @@ export const deleteBanner: RequestHandler = async (req, res) => {
 export const handleImageUpload: RequestHandler = async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ success: false, error: "No image file provided" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No image file provided" });
     }
     // Public URL path for the saved file
     const imageUrl = `/uploads/banners/${path.basename(req.file.path)}`;
@@ -489,9 +556,14 @@ export const initializeBanners: RequestHandler = async (req, res) => {
 
     await db.collection("banners").insertMany(defaults as any[]);
 
-    res.json({ success: true, message: "Default banners initialized successfully" });
+    res.json({
+      success: true,
+      message: "Default banners initialized successfully",
+    });
   } catch (error) {
     console.error("Error initializing banners:", error);
-    res.status(500).json({ success: false, error: "Failed to initialize banners" });
+    res
+      .status(500)
+      .json({ success: false, error: "Failed to initialize banners" });
   }
 };

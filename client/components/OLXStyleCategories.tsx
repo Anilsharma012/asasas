@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Users,
-  User,
-  Baby,
-  Heart,
-} from "lucide-react";
+import { Users, User, Baby, Heart } from "lucide-react";
 import { withApiErrorBoundary } from "./ApiErrorBoundary";
 import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
@@ -177,13 +172,11 @@ function OLXStyleCategories() {
           {(categories || []).map((category, index) => {
             if (!category?.name) return null;
 
-            const IconComponent =
-              categoryIcons[category.name] || Heart;
+            const IconComponent = categoryIcons[category.name] || Heart;
             const isActive = activeCat?.slug === category.slug;
 
             const isSell =
-              norm(category.slug) === "sell" ||
-              norm(category.name) === "sell";
+              norm(category.slug) === "sell" || norm(category.name) === "sell";
 
             return (
               <div

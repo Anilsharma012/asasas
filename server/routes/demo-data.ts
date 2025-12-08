@@ -104,7 +104,9 @@ export const DEMO_PROPERTIES = [
     subCategory: "T-Shirts",
     price: 499,
     description: "Comfortable and stylish 100% cotton t-shirt",
-    images: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"],
+    images: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+    ],
     premium: true,
     featured: true,
     status: "active",
@@ -118,7 +120,9 @@ export const DEMO_PROPERTIES = [
     subCategory: "Sarees",
     price: 2499,
     description: "Beautiful traditional saree with modern designs",
-    images: ["https://images.unsplash.com/photo-1630638139973-dddcfaaed454?w=500"],
+    images: [
+      "https://images.unsplash.com/photo-1630638139973-dddcfaaed454?w=500",
+    ],
     premium: true,
     featured: true,
     status: "active",
@@ -132,7 +136,9 @@ export const DEMO_PROPERTIES = [
     subCategory: "Boys",
     price: 599,
     description: "Cute and playful casual wear for kids",
-    images: ["https://images.unsplash.com/photo-1518006675773-f6b0256c8386?w=500"],
+    images: [
+      "https://images.unsplash.com/photo-1518006675773-f6b0256c8386?w=500",
+    ],
     premium: true,
     featured: true,
     status: "active",
@@ -158,7 +164,9 @@ export const DEMO_PROPERTIES = [
     subCategory: "Kurtis",
     price: 799,
     description: "Comfortable and fashionable casual dress",
-    images: ["https://images.unsplash.com/photo-1595777384481-189e3c8a2b61?w=500"],
+    images: [
+      "https://images.unsplash.com/photo-1595777384481-189e3c8a2b61?w=500",
+    ],
     status: "active",
     approvalStatus: "approved",
   },
@@ -172,11 +180,7 @@ export const DEMO_PACKAGES = [
     price: 299,
     duration: 7,
     isActive: true,
-    features: [
-      "5 Featured Listings",
-      "Basic Support",
-      "Standard Visibility",
-    ],
+    features: ["5 Featured Listings", "Basic Support", "Standard Visibility"],
   },
   {
     _id: "pkg_002",
@@ -214,14 +218,16 @@ export const DEMO_BANNERS = [
     _id: "banner_001",
     title: "Marco Fashion Sale",
     position: "homepage_hero",
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
+    imageUrl:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
     isActive: true,
   },
   {
     _id: "banner_002",
     title: "New Collection",
     position: "homepage_middle",
-    imageUrl: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1200",
+    imageUrl:
+      "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1200",
     isActive: true,
   },
 ];

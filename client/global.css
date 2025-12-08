@@ -177,8 +177,12 @@
 /* ================== HERO SLIDER – FINAL FIXES (NO BLACK BANDS) ================== */
 
 /* Kill shadcn carousel gutters only inside hero */
-.hero-carousel .-ml-4 { margin-left: 0 !important; }
-.hero-carousel .pl-4 { padding-left: 0 !important; }
+.hero-carousel .-ml-4 {
+  margin-left: 0 !important;
+}
+.hero-carousel .pl-4 {
+  padding-left: 0 !important;
+}
 
 /* Embla/Carousel height chain: every layer must fill 100% */
 .hero-carousel .embla,
@@ -204,30 +208,29 @@
   will-change: transform;
 }
 
-
-
-
 /* Desktop par (>=768px) left aane wala mobile-logo HIDE */
 @media (min-width: 768px) {
-  .header-left a { display: none !important; }
+  .header-left a {
+    display: none !important;
+  }
 }
 
 /* Center brand ko aggressively bada allow karo */
 .center-brand img {
-  max-height: none !important;   /* kill any global cap */
+  max-height: none !important; /* kill any global cap */
 }
 
 /* Optionally: aur bada chahiye */
 @media (min-width: 1024px) {
-  .center-brand img { height: 7rem !important; } /* ~h-28 */
+  .center-brand img {
+    height: 7rem !important;
+  } /* ~h-28 */
 }
 @media (min-width: 1280px) {
-  .center-brand img { height: 8rem !important; } /* ~h-32 */
+  .center-brand img {
+    height: 8rem !important;
+  } /* ~h-32 */
 }
-
-
-
-
 
 /* Desktop par fixed overlay "home logo" ko hatao */
 @media (min-width: 768px) {
@@ -238,13 +241,19 @@
 }
 
 /* (Already added) center logo size force */
-.center-brand img { max-height: none !important; }
-@media (min-width: 1024px) { .center-brand img { height: 7rem !important; } }
-@media (min-width: 1280px) { .center-brand img { height: 15rem !important; } }
-
-
-
-
+.center-brand img {
+  max-height: none !important;
+}
+@media (min-width: 1024px) {
+  .center-brand img {
+    height: 7rem !important;
+  }
+}
+@media (min-width: 1280px) {
+  .center-brand img {
+    height: 15rem !important;
+  }
+}
 
 /* Advertisement banner text fix */
 .advertisement-carousel h2,

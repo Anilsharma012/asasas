@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Star, Heart } from "lucide-react";
-import { DEMO_FASHION_PRODUCTS, formatFashionPrice } from "../data/fashionProducts";
+import {
+  DEMO_FASHION_PRODUCTS,
+  formatFashionPrice,
+} from "../data/fashionProducts";
 
 const SLIDE_INTERVAL = 5000;
 
@@ -110,9 +113,7 @@ export default function FashionProductCarousel() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-600 mb-4">
-                      {product.description}
-                    </p>
+                    <p className="text-gray-600 mb-4">{product.description}</p>
 
                     {/* Rating */}
                     {product.rating && (
@@ -206,7 +207,7 @@ export default function FashionProductCarousel() {
         <div className="mt-12 grid grid-cols-3 gap-4">
           {["Men", "Women", "Kids"].map((category) => {
             const count = DEMO_FASHION_PRODUCTS.filter(
-              (p) => p.category === category as any
+              (p) => p.category === (category as any),
             ).length;
             return (
               <div
