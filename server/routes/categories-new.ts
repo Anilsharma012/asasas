@@ -7,6 +7,7 @@ import {
   getCachedCategories,
   clearCategoriesCache,
 } from "../utils/categoryCache";
+import { DEMO_CATEGORIES } from "./demo-data";
 
 // Configure multer for icon upload
 const storage = multer.memoryStorage();
