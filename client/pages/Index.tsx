@@ -14,6 +14,7 @@ import PropertyAdsSlider from "../components/PropertyAdsSlider";
 import AdSlot from "../components/AdSlot";
 import AdvertisementBannerCarousel from "../components/AdvertisementBannerCarousel";
 import AdvertisementForm from "../components/AdvertisementBanners";
+import FashionProductCarousel from "../components/FashionProductCarousel";
 
 export default function Index() {
   const [showAdForm, setShowAdForm] = useState(false);
