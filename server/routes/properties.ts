@@ -10,6 +10,7 @@ import {
   sendPropertyConfirmationEmail,
   sendPropertyApprovalEmail,
 } from "../utils/mailer";
+import { DEMO_PROPERTIES } from "./demo-data";
 
 /* =========================================================================
    Multer (image uploads)
