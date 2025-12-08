@@ -2,11 +2,11 @@ import { MongoClient, ObjectId } from "mongodb";
 
 async function run() {
   const url =
-    "mongodb+srv://Aashishpropeorty:SACHIN123@property.zn2cowc.mongodb.net/?retryWrites=true&w=majority";
+    "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom";
   const client = new MongoClient(url);
   try {
     await client.connect();
-    const db = client.db("aashish_property");
+    const db = client.db("Ecom");
     const sellerId = "68ce32cae218c62c317756a0";
 
     const property = {
