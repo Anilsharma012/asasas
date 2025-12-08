@@ -137,7 +137,7 @@ export default function OLXStyleHeader() {
           <div className="absolute left-0 flex items-center gap-2 header-left">
             <button
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="p-2 hover:bg-red-700 rounded-lg transition-colors"
+              className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
               aria-label="Open menu"
             >
               <Menu className="h-7 w-7 text-white" />
