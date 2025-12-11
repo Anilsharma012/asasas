@@ -197,7 +197,7 @@ export default function FashionCategory() {
                       {/* Price */}
                       <div className="mb-4">
                         <p className="text-xl font-bold text-gray-900">
-                          {formatFashionPrice(product.price)}
+                          {formatPrice(product.price)}
                         </p>
                       </div>
 
