@@ -1,24 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ChevronLeft, Star, ShoppingCart, Heart } from "lucide-react";
-import {
-  DEMO_FASHION_PRODUCTS,
-  getProductsByCategory,
-  formatFashionPrice,
-} from "../data/fashionProducts";
+import { api } from "../lib/api";
 import OLXStyleHeader from "../components/OLXStyleHeader";
 import StaticFooter from "../components/StaticFooter";
 import BottomNavigation from "../components/BottomNavigation";
 import { Button } from "@/components/ui/button";
 
+interface Product {
+  _id: string;
+  title: string;
+  category: string;
+  price: number;
+  description: string;
+  images: string[];
+  sizes?: string[];
+  colors?: string[];
+  rating?: number;
+  reviews?: number;
+}
+
 export default function FashionCategory() {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
   // Map URL slug to category name
-  const categoryMap: Record<string, "Men" | "Women" | "Kids"> = {
+  const categoryMap: Record<string, string> = {
     men: "Men",
     women: "Women",
     kids: "Kids",
@@ -26,7 +38,31 @@ export default function FashionCategory() {
   };
 
   const categoryName = categoryMap[category?.toLowerCase() || ""] || "Men";
-  const products = getProductsByCategory(categoryName);
+
+  // Fetch products from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await api.get(
+          `fashion/products?category=${categoryName}&active=true`
+        );
+        if (response?.data?.success) {
+          setProducts(response.data.data);
+        } else {
+          setError("Failed to load products");
+        }
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setError("Failed to load products");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [categoryName]);
 
   const toggleFavorite = (productId: string) => {
     const newFavorites = new Set(favorites);
