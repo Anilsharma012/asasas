@@ -612,6 +612,17 @@ import {
   getServiceCategories,
 } from "./routes/other-services";
 
+// Fashion Products routes
+import {
+  initializeFashionData,
+  getFashionProducts,
+  getFashionCategories,
+  getFashionBanners,
+  createFashionProduct,
+  updateFashionProduct,
+  deleteFashionProduct,
+} from "./routes/fashion-products";
+
 let socketServer: ChatSocketServer;
 
 export function createServer() {
