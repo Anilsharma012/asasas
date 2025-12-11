@@ -44,9 +44,11 @@ export default function FashionCategory() {
     Kids: "👶",
   }[categoryName];
 
-  const formatPrice = (price: number): string => {
-    return `₹${price.toLocaleString("en-IN")}`;
-  };
+  const categoryIcon = {
+    Men: "👨",
+    Women: "👩",
+    Kids: "👶",
+  }[categoryName];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -76,16 +78,7 @@ export default function FashionCategory() {
 
         {/* Products Grid */}
         <div className="max-w-6xl mx-auto px-4 py-12">
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="w-12 h-12 border-4 border-pink-200 border-t-pink-500 rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-gray-500 text-lg">Loading products...</p>
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <p className="text-red-500 text-lg">{error}</p>
-            </div>
-          ) : products.length === 0 ? (
+          {products.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
                 No products found in this category
