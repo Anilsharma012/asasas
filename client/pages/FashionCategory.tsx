@@ -71,7 +71,8 @@ export default function FashionCategory() {
               </h1>
             </div>
             <p className="text-white/90 text-lg">
-              Discover the latest {categoryName.toLowerCase()} fashion collection
+              Discover the latest {categoryName.toLowerCase()} fashion
+              collection
             </p>
           </div>
         </div>
@@ -140,7 +141,10 @@ export default function FashionCategory() {
                       {product.rating && (
                         <div className="flex items-center gap-2 mb-3">
                           <div className="flex items-center gap-1">
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
+                            <Star
+                              size={14}
+                              className="fill-yellow-400 text-yellow-400"
+                            />
                             <span className="text-xs font-semibold text-gray-900">
                               {product.rating}
                             </span>

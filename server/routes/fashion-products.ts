@@ -347,7 +347,8 @@ export const initializeFashionData: RequestHandler = async (req, res) => {
     if (existingCategories > 0 && force !== "true") {
       return res.status(200).json({
         success: true,
-        message: "Fashion data already initialized. Use ?force=true to reinitialize",
+        message:
+          "Fashion data already initialized. Use ?force=true to reinitialize",
         data: {
           categories: existingCategories,
         },
@@ -365,12 +366,8 @@ export const initializeFashionData: RequestHandler = async (req, res) => {
     await db
       .collection("fashion_categories")
       .createIndex({ slug: 1 }, { unique: true });
-    await db
-      .collection("fashion_products")
-      .createIndex({ category: 1 });
-    await db
-      .collection("fashion_products")
-      .createIndex({ isActive: 1 });
+    await db.collection("fashion_products").createIndex({ category: 1 });
+    await db.collection("fashion_products").createIndex({ isActive: 1 });
 
     // Insert categories
     const categoriesResult = await db
@@ -537,14 +534,12 @@ export const createFashionProduct: RequestHandler = async (req, res) => {
       });
     }
 
-    const result = await db
-      .collection("fashion_products")
-      .insertOne({
-        ...product,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        isActive: true,
-      });
+    const result = await db.collection("fashion_products").insertOne({
+      ...product,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      isActive: true,
+    });
 
     res.status(201).json({
       success: true,
@@ -576,18 +571,16 @@ export const updateFashionProduct: RequestHandler = async (req, res) => {
       });
     }
 
-    const result = await db
-      .collection("fashion_products")
-      .findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        {
-          $set: {
-            ...updates,
-            updatedAt: new Date(),
-          },
+    const result = await db.collection("fashion_products").findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          ...updates,
+          updatedAt: new Date(),
         },
-        { returnDocument: "after" },
-      );
+      },
+      { returnDocument: "after" },
+    );
 
     if (!result.value) {
       return res.status(404).json({

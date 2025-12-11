@@ -40,7 +40,8 @@ export default function StaticFooter() {
             </div>
 
             <p className="text-pink-100 text-sm leading-relaxed">
-              Discover Marco Fashion - Your premier destination for stylish, quality clothing for the entire family.
+              Discover Marco Fashion - Your premier destination for stylish,
+              quality clothing for the entire family.
             </p>
 
             {/* Social Links */}
@@ -232,7 +233,8 @@ export default function StaticFooter() {
             <div className="flex items-center space-x-2 text-sm">
               <Calendar className="h-4 w-4" />
               <span>
-                All rights reserved © 2024-{new Date().getFullYear()} Marco Fashion
+                All rights reserved © 2024-{new Date().getFullYear()} Marco
+                Fashion
               </span>
             </div>
 

@@ -113,14 +113,19 @@ export default function FashionAdmin() {
       let response;
       if (editingProductId) {
         // Update
-        response = await api.put(`admin/fashion/products/${editingProductId}`, formData);
+        response = await api.put(
+          `admin/fashion/products/${editingProductId}`,
+          formData,
+        );
       } else {
         // Create
         response = await api.post("admin/fashion/products", formData);
       }
 
       if (response?.data?.success) {
-        alert(`✅ Product ${editingProductId ? "updated" : "created"} successfully!`);
+        alert(
+          `✅ Product ${editingProductId ? "updated" : "created"} successfully!`,
+        );
         setFormData({
           title: "",
           category: "Men",
@@ -232,14 +237,17 @@ export default function FashionAdmin() {
       {showInitializeAlert && (
         <div className="bg-yellow-50 border border-yellow-200 m-4 p-4 rounded-lg">
           <div className="flex items-start gap-3">
-            <AlertCircle size={20} className="text-yellow-600 mt-1 flex-shrink-0" />
+            <AlertCircle
+              size={20}
+              className="text-yellow-600 mt-1 flex-shrink-0"
+            />
             <div>
               <h3 className="font-semibold text-yellow-900 mb-2">
                 Initialize Fashion Data
               </h3>
               <p className="text-sm text-yellow-800 mb-3">
-                The fashion product database appears to be empty. Click the button below to
-                initialize with demo data.
+                The fashion product database appears to be empty. Click the
+                button below to initialize with demo data.
               </p>
               <Button
                 onClick={handleInitializeData}
@@ -367,7 +375,10 @@ export default function FashionAdmin() {
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
-              <Search size={18} className="absolute left-3 top-3 text-gray-400" />
+              <Search
+                size={18}
+                className="absolute left-3 top-3 text-gray-400"
+              />
               <input
                 type="text"
                 placeholder="Search products..."
@@ -389,7 +400,8 @@ export default function FashionAdmin() {
               ))}
             </select>
             <div className="text-sm text-gray-600 py-2">
-              Found {filteredProducts.length} product{filteredProducts.length !== 1 ? "s" : ""}
+              Found {filteredProducts.length} product
+              {filteredProducts.length !== 1 ? "s" : ""}
             </div>
           </div>
         </div>
@@ -427,16 +439,23 @@ export default function FashionAdmin() {
                 </thead>
                 <tbody className="divide-y">
                   {filteredProducts.map((product) => (
-                    <tr key={product._id} className="hover:bg-gray-50 transition">
+                    <tr
+                      key={product._id}
+                      className="hover:bg-gray-50 transition"
+                    >
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-medium text-gray-900">{product.title}</p>
+                          <p className="font-medium text-gray-900">
+                            {product.title}
+                          </p>
                           <p className="text-sm text-gray-500 truncate">
                             {product.description}
                           </p>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-700">{product.category}</td>
+                      <td className="px-6 py-4 text-gray-700">
+                        {product.category}
+                      </td>
                       <td className="px-6 py-4 font-semibold text-gray-900">
                         ₹{product.price}
                       </td>
@@ -452,7 +471,9 @@ export default function FashionAdmin() {
                             <span className="text-sm">Active</span>
                           </div>
                         ) : (
-                          <span className="text-sm text-gray-500">Inactive</span>
+                          <span className="text-sm text-gray-500">
+                            Inactive
+                          </span>
                         )}
                       </td>
                       <td className="px-6 py-4 flex gap-2">

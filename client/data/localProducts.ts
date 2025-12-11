@@ -260,8 +260,7 @@ const kidsProducts: LocalProduct[] = [
     category: "Kids",
     subcategory: "Formal",
     price: 299,
-    description:
-      "Formal school uniform shirt. Durable and easy to wash.",
+    description: "Formal school uniform shirt. Durable and easy to wash.",
     images: [
       "https://images.unsplash.com/photo-1519238263670-15267080fe83?w=500&h=500&fit=crop",
     ],
@@ -361,7 +360,7 @@ export function getProductById(id: string) {
  */
 export function getRelatedProducts(
   productId: string,
-  limit: number = 4
+  limit: number = 4,
 ): LocalProduct[] {
   const product = getProductById(productId);
   if (!product) return [];
@@ -376,14 +375,14 @@ export function getRelatedProducts(
  */
 export function searchProducts(
   query: string,
-  category?: "Men" | "Women" | "Kids"
+  category?: "Men" | "Women" | "Kids",
 ): LocalProduct[] {
   const lower = query.toLowerCase();
   let results = allProducts.filter(
     (p) =>
       p.title.toLowerCase().includes(lower) ||
       p.description.toLowerCase().includes(lower) ||
-      p.subcategory.toLowerCase().includes(lower)
+      p.subcategory.toLowerCase().includes(lower),
   );
 
   if (category) {
