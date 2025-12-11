@@ -19,7 +19,7 @@ export default function StaticFooter() {
   const [isCategoryDrawerOpen, setIsCategoryDrawerOpen] = useState(false);
 
   return (
-    <footer className="bg-gradient-to-r from-[#C70000] to-red-700 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-r from-pink-500 to-purple-600 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-32 -translate-y-32"></div>
@@ -39,9 +39,8 @@ export default function StaticFooter() {
               <h3 className="text-2xl font-bold">{APP_NAME}</h3>
             </div>
 
-            <p className="text-red-100 text-sm leading-relaxed">
-              Your trusted property partner in Rohtak. Find your dream home with
-              verified listings and expert guidance.
+            <p className="text-pink-100 text-sm leading-relaxed">
+              Discover Marco Fashion - Your premier destination for stylish, quality clothing for the entire family.
             </p>
 
             {/* Social Links */}
@@ -97,25 +96,24 @@ export default function StaticFooter() {
             </div>
           </div>
 
-          {/* Popular Locations */}
+          {/* Shop Categories */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Popular Locations</h4>
+            <h4 className="text-lg font-semibold">Shop by Category</h4>
             <ul className="space-y-3">
               {[
-                "Model Town",
-                "Sector 14",
-                "Civil Lines",
-                "Old City",
-                "Industrial Area",
-                "Bohar",
-              ].map((location) => (
-                <li key={location}>
+                { name: "Men's Fashion", path: "/men" },
+                { name: "Women's Fashion", path: "/women" },
+                { name: "Kids' Fashion", path: "/kids" },
+                { name: "New Arrivals", path: "/men" },
+                { name: "Sale Items", path: "/women" },
+                { name: "Best Sellers", path: "/kids" },
+              ].map((category) => (
+                <li key={category.path}>
                   <Link
-                    to={`/properties?location=${encodeURIComponent(location)}`}
-                    className="text-red-200 hover:text-white transition-colors duration-200 text-sm flex items-center"
+                    to={category.path}
+                    className="text-pink-200 hover:text-white transition-colors duration-200 text-sm flex items-center"
                   >
-                    <MapPin className="h-3 w-3 mr-2" />
-                    Properties in {location}
+                    👗 {category.name}
                   </Link>
                 </li>
               ))}
@@ -128,79 +126,71 @@ export default function StaticFooter() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/buy"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  to="/"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Quick Buy
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/sale"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  to="/men"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Quick Sale
+                  Men's Collection
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/rent"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  to="/women"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Rental Properties
+                  Women's Collection
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/lease"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  to="/kids"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Lease Properties
+                  Kids' Collection
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/pg"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  to="/admin/fashion"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  PG Accommodation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
-                >
-                  Other Services
+                  Admin Panel
                 </Link>
               </li>
               <li>
                 <Link
                   to="/blogs"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Blog
+                  Fashion Blog
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal & Support */}
+          {/* Customer Service */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Legal & Support</h4>
+            <h4 className="text-lg font-semibold">Customer Service</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   to="/about-us"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  About Us
+                  About Marco Fashion
                 </Link>
               </li>
               <li>
                 <Link
                   to="/contact-us"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Contact Us
                 </Link>
@@ -208,7 +198,7 @@ export default function StaticFooter() {
               <li>
                 <Link
                   to="/p/privacy-policy"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Privacy Policy
                 </Link>
@@ -216,7 +206,7 @@ export default function StaticFooter() {
               <li>
                 <Link
                   to="/p/terms-conditions"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Terms & Conditions
                 </Link>
@@ -224,9 +214,9 @@ export default function StaticFooter() {
               <li>
                 <Link
                   to="/support/help"
-                  className="text-red-200 hover:text-white transition-colors duration-200 text-sm"
+                  className="text-pink-200 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Help Center
+                  Shipping & Returns
                 </Link>
               </li>
             </ul>
@@ -237,18 +227,17 @@ export default function StaticFooter() {
         <FooterPackages />
 
         {/* Bottom Bar */}
-        <div className="border-t border-red-600 mt-12 pt-8">
+        <div className="border-t border-pink-600 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-sm">
               <Calendar className="h-4 w-4" />
               <span>
-                All rights reserved © 2006-{new Date().getFullYear()} Ashish
-                Properties
+                All rights reserved © 2024-{new Date().getFullYear()} Marco Fashion
               </span>
             </div>
 
-            <div className="flex items-center space-x-4 text-xs text-red-200">
-              <span>Stable Version</span>
+            <div className="flex items-center space-x-4 text-xs text-pink-200">
+              <span>Premium Fashion Edition</span>
             </div>
           </div>
         </div>
@@ -259,10 +248,10 @@ export default function StaticFooter() {
         <button
           onClick={() => setIsCategoryDrawerOpen(true)}
           data-testid="footer-cats"
-          className="bg-[#C70000] hover:bg-red-700 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
+          className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
         >
           <Grid3X3 className="w-4 h-4" />
-          <span>Categories</span>
+          <span>Collections</span>
         </button>
       </div>
 
