@@ -100,6 +100,7 @@ import PaymentStatus from "./pages/PaymentStatus";
 import PackagesPage from "./pages/Packages";
 import BlogListing from "./pages/BlogListing";
 import BlogDetail from "./pages/BlogDetail";
+import FashionCategory from "./pages/FashionCategory";
 
 // PWA install UI ko hata diya (hum APK route use kar rahe)
 // import PWAInstallButton from "./components/PWAInstallButton";
@@ -149,6 +150,11 @@ function App() {
 
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  {/* Fashion Category Routes */}
+                  <Route path="/men" element={<FashionCategory />} />
+                  <Route path="/women" element={<FashionCategory />} />
+                  <Route path="/kids" element={<FashionCategory />} />
+                  <Route path="/marco-fashion" element={<FashionCategory />} />
                   <Route path="/categories" element={<Categories />} />
                   <Route
                     path="/categories/:category"
