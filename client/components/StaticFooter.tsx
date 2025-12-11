@@ -101,14 +101,14 @@ export default function StaticFooter() {
             <h4 className="text-lg font-semibold">Shop by Category</h4>
             <ul className="space-y-3">
               {[
-                { name: "Men's Fashion", path: "/men" },
-                { name: "Women's Fashion", path: "/women" },
-                { name: "Kids' Fashion", path: "/kids" },
-                { name: "New Arrivals", path: "/men" },
-                { name: "Sale Items", path: "/women" },
-                { name: "Best Sellers", path: "/kids" },
+                { id: "mens", name: "Men's Fashion", path: "/men" },
+                { id: "womens", name: "Women's Fashion", path: "/women" },
+                { id: "kids", name: "Kids' Fashion", path: "/kids" },
+                { id: "arrivals", name: "New Arrivals", path: "/men" },
+                { id: "sale", name: "Sale Items", path: "/women" },
+                { id: "bestsellers", name: "Best Sellers", path: "/kids" },
               ].map((category) => (
-                <li key={category.path}>
+                <li key={category.id}>
                   <Link
                     to={category.path}
                     className="text-pink-200 hover:text-white transition-colors duration-200 text-sm flex items-center"
