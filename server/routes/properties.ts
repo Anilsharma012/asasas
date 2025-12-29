@@ -10,6 +10,7 @@ import {
   sendPropertyConfirmationEmail,
   sendPropertyApprovalEmail,
 } from "../utils/mailer";
+import { DEMO_PROPERTIES } from "./demo-data";
 
 /* =========================================================================
    Multer (image uploads)
@@ -78,7 +79,25 @@ function expandCategory(cat: string): string[] {
  */
 export const getProperties: RequestHandler = async (req, res) => {
   try {
-    const db = getDatabase();
+    let db: any;
+    try {
+      db = getDatabase();
+    } catch (dbErr) {
+      // Database not initialized, return demo data
+      const response: ApiResponse<any> = {
+        success: true,
+        data: {
+          properties: DEMO_PROPERTIES,
+          total: DEMO_PROPERTIES.length,
+          page: 1,
+          pages: 1,
+        },
+        meta: {
+          isDemo: true,
+        },
+      };
+      return res.json(response);
+    }
 
     // Raw query
     const {

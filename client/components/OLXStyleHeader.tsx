@@ -122,7 +122,7 @@ export default function OLXStyleHeader() {
   };
 
   return (
-    <header className="bg-[#C70000] border-b border-red-800 sticky top-0 z-40">
+    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-40">
       <div
         className={`px-4 transition-all duration-300 ${isLandscape && isLandscapeCollapsed ? "py-2" : "py-3"}`}
       >
@@ -137,7 +137,7 @@ export default function OLXStyleHeader() {
           <div className="absolute left-0 flex items-center gap-2 header-left">
             <button
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="p-2 hover:bg-red-700 rounded-lg transition-colors"
+              className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
               aria-label="Open menu"
             >
               <Menu className="h-7 w-7 text-white" />
@@ -177,7 +177,7 @@ export default function OLXStyleHeader() {
           <div className="absolute right-0 flex items-center gap-2">
             <button
               onClick={handleFavoritesClick}
-              className="p-2 hover:bg-red-700 rounded-lg transition-colors text-white"
+              className="p-2 hover:bg-gray-800 rounded-lg transition-colors text-white"
               aria-label="Wishlist"
             >
               <Heart className="h-6 w-6" />
@@ -192,13 +192,13 @@ export default function OLXStyleHeader() {
                       : "/notifications";
                   window.location.href = notificationPath;
                 }}
-                className="relative p-2 hover:bg-red-700 rounded-lg transition-colors text-white"
+                className="relative p-2 hover:bg-gray-800 rounded-lg transition-colors text-white"
                 aria-label="Notifications"
               >
                 <Bell className="h-6 w-6" />
                 {unread > 0 && (
                   <span
-                    className="absolute -top-1 -right-1 bg-white text-[#C70000] text-xs font-bold rounded-full h-5 min-w-[1.25rem] px-1 flex items-center justify-center"
+                    className="absolute -top-1 -right-1 bg-white text-gray-900 text-xs font-bold rounded-full h-5 min-w-[1.25rem] px-1 flex items-center justify-center"
                     title={`${unread} unread notifications`}
                     aria-label={`${unread} unread notifications`}
                   >
@@ -256,7 +256,7 @@ export default function OLXStyleHeader() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-200" />
                 <input
                   type="text"
-                  placeholder="Search properties in Rohtak..."
+                  placeholder="Search fashion items..."
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
@@ -286,7 +286,7 @@ export default function OLXStyleHeader() {
                           onClick={() => pickSuggestion(r)}
                           className="w-full text-left px-3 py-3 hover:bg-gray-50 rounded flex items-center space-x-2 min-h-11 whitespace-normal break-words"
                         >
-                          <MapPin className="h-4 w-4 text-[#C70000]" />
+                          <MapPin className="h-4 w-4 text-gray-600" />
                           <span className="text-gray-900">{r}</span>
                         </button>
                       ))}
@@ -311,7 +311,7 @@ export default function OLXStyleHeader() {
                             : "hover:bg-gray-50"
                         }`}
                       >
-                        <MapPin className="h-4 w-4 text-[#C70000]" />
+                        <MapPin className="h-4 w-4 text-gray-600" />
                         <span className="text-gray-900">{area}</span>
                       </button>
                     ))}

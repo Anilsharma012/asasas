@@ -612,6 +612,17 @@ import {
   getServiceCategories,
 } from "./routes/other-services";
 
+// Fashion Products routes
+import {
+  initializeFashionData,
+  getFashionProducts,
+  getFashionCategories,
+  getFashionBanners,
+  createFashionProduct,
+  updateFashionProduct,
+  deleteFashionProduct,
+} from "./routes/fashion-products";
+
 let socketServer: ChatSocketServer;
 
 export function createServer() {
@@ -1096,6 +1107,41 @@ export function createServer() {
     requireAdmin,
     deleteMiniSubcategory,
   );
+  // ============================================================================
+  // FASHION PRODUCTS ROUTES
+  // ============================================================================
+
+  // PUBLIC Fashion routes
+  app.get("/api/fashion/products", getFashionProducts); // ?category=Men&active=true&limit=20&skip=0
+  app.get("/api/fashion/categories", getFashionCategories); // ?active=true
+  app.get("/api/fashion/banners", getFashionBanners); // ?position=homepage_hero&active=true
+
+  // ADMIN Fashion routes
+  app.post(
+    "/api/admin/fashion/initialize",
+    authenticateToken,
+    requireAdmin,
+    initializeFashionData,
+  );
+  app.post(
+    "/api/admin/fashion/products",
+    authenticateToken,
+    requireAdmin,
+    createFashionProduct,
+  );
+  app.put(
+    "/api/admin/fashion/products/:id",
+    authenticateToken,
+    requireAdmin,
+    updateFashionProduct,
+  );
+  app.delete(
+    "/api/admin/fashion/products/:id",
+    authenticateToken,
+    requireAdmin,
+    deleteFashionProduct,
+  );
+
   app.put(
     "/api/admin/mini-subcategories/:miniSubcategoryId/toggle",
     authenticateToken,

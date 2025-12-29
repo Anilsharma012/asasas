@@ -13,9 +13,9 @@ export default function HomeTopBar() {
   const [src, setSrc] = useState<string | null>(null);
   const candidates = [
     ASHISH_LOGO_URL,
-    "/brand/ashishproperties-logo.svg",
-    "/brand/ashishproperties-logo.png",
-    "/icons/icon-192.png", // last resort (already in public/)
+    "/brand/marco-logo.svg",
+    "/brand/marco-logo.png",
+    "/icons/icon-192.png",
   ];
 
   useEffect(() => {
@@ -32,32 +32,30 @@ export default function HomeTopBar() {
       img.src = test;
     };
     tryNext();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <a
         href="/"
-        aria-label="Ashish Properties Home"
-        // keep clear of the hamburger (≈48–56px wide)
+        aria-label="Marco Fashion Home"
         className="fixed top-2 left-16 md:left-20 z-[9999] inline-flex items-center gap-2 no-underline"
         style={{ pointerEvents: "auto" }}
       >
         {src ? (
           <img
             src={src}
-            alt="Ashish Properties"
+            alt="Marco Fashion"
             className="hidden md:inline-block h-8 md:h-9 w-auto select-none drop-shadow-md"
             draggable={false}
           />
         ) : (
-          <span className="hidden md:inline-flex h-8 w-8 md:h-9 md:w-9 rounded-full bg-white/90 text-red-700 font-extrabold flex items-center justify-center shadow-sm">
-            AP
+          <span className="hidden md:inline-flex h-8 w-8 md:h-9 md:w-9 rounded-full bg-white/90 text-gray-800 font-extrabold flex items-center justify-center shadow-sm">
+            MF
           </span>
         )}
 
-        <span className="sr-only">ashishproperties.in</span>
+        <span className="sr-only">marco-fashion.com</span>
       </a>
     </>
   );

@@ -9,7 +9,7 @@ async function runStep3Test() {
   // Environment configuration
   const API_BASE = "/api";
   const MONGODB_URI =
-    "mongodb+srv://Aashishpropeorty:SATYAKA123@property.zn2cowc.mongodb.net/";
+    "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom";
   const TEST_PROPERTY_ID = "674a9f20c2b70b4a34b76b65"; // Default test property
 
   let testResults = {

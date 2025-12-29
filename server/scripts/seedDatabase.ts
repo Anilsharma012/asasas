@@ -2,8 +2,8 @@ import { MongoClient } from "mongodb";
 import bcrypt from "bcrypt";
 
 const MONGODB_URI =
-  "mongodb+srv://Aashishpropeorty:SATYAKA123@property.zn2cowc.mongodb.net/";
-const DB_NAME = "aashish_property";
+  "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom";
+const DB_NAME = "Ecom";
 
 // Sample data with comprehensive categories for property management
 const categories = [

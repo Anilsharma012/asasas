@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import { getDatabase } from "../db/mongodb";
 import { AdPackage, Transaction, ApiResponse } from "@shared/types";
 import { ObjectId, Db } from "mongodb";
+import { DEMO_PACKAGES } from "./demo-data";
 
 // Internal function to initialize packages
 async function initializePackagesInternal(db: Db) {
@@ -80,8 +81,27 @@ async function initializePackagesInternal(db: Db) {
 // Get all advertisement packages
 export const getAdPackages: RequestHandler = async (req, res) => {
   try {
-    const db = getDatabase();
-    const { category, location, activeOnly = "false", isActive } = req.query as any;
+    let db: any;
+    try {
+      db = getDatabase();
+    } catch (dbErr) {
+      // Database not initialized, return demo data
+      const response: ApiResponse<any[]> = {
+        success: true,
+        data: DEMO_PACKAGES as any,
+        meta: {
+          isDemo: true,
+        },
+      };
+      return res.json(response);
+    }
+
+    const {
+      category,
+      location,
+      activeOnly = "false",
+      isActive,
+    } = req.query as any;
 
     const filter: any = {};
 

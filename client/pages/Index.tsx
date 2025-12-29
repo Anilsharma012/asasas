@@ -14,6 +14,7 @@ import PropertyAdsSlider from "../components/PropertyAdsSlider";
 import AdSlot from "../components/AdSlot";
 import AdvertisementBannerCarousel from "../components/AdvertisementBannerCarousel";
 import AdvertisementForm from "../components/AdvertisementBanners";
+import FashionProductCarousel from "../components/FashionProductCarousel";
 
 export default function Index() {
   const [showAdForm, setShowAdForm] = useState(false);
@@ -56,7 +57,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white">
       <OLXStyleHeader />
-      <main className="pb-16 bg-gradient-to-b from-red-50 to-white">
+      <main className="pb-16 bg-gradient-to-b from-gray-50 to-white">
         {/* Big banner above hero */}
         {/* <TopBanner /> */}
 
@@ -68,6 +69,9 @@ export default function Index() {
 
         {/* Dynamic Categories (moved up as requested) */}
         <OLXStyleCategories />
+
+        {/* Fashion Product Carousel */}
+        <FashionProductCarousel />
 
         {/* Ad Slot: Below categories (CLS-safe) */}
         <div className="px-4 mt-4">
@@ -86,7 +90,7 @@ export default function Index() {
           <OLXStyleListings />
         </div>
 
-        <div className="bg-red-50 py-8">
+        <div className="bg-gray-50 py-8">
           <PackagesShowcase />
         </div>
       </main>

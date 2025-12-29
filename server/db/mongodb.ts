@@ -1,14 +1,10 @@
 import { MongoClient, Db } from "mongodb";
 
-// MongoDB Atlas connection - using working credentials for now
-const username = "Aashishpropeorty";
-const password = "SATYAKA123";
-const cluster = "property.zn2cowc.mongodb.net";
-
+// MongoDB Atlas connection - using environment variables
 const MONGODB_URI =
   process.env.MONGODB_URI ||
-  `mongodb+srv://${encodeURIComponent(username)}:${encodeURIComponent(password)}@${cluster}/Use?retryWrites=true&w=majority&appName=Property`;
-const DB_NAME = process.env.DB_NAME || "aashish_property";
+  "mongodb+srv://UNI10:SACHIN123@uni10.kqsmgmt.mongodb.net/Ecom?retryWrites=true&w=majority&appName=Ecom";
+const DB_NAME = process.env.DB_NAME || "Ecom";
 
 let client: MongoClient;
 let db: Db;
@@ -21,7 +17,6 @@ export async function connectToDatabase() {
 
   try {
     console.log("🔄 Connecting to MongoDB Atlas...");
-    console.log("🌐 Cluster:", cluster);
     console.log("📊 Target Database:", DB_NAME);
 
     client = new MongoClient(MONGODB_URI, {

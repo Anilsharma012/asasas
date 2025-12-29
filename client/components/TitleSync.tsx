@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const BRAND = "Ashish Properties";
+const BRAND = "Marco Fashion";
 
 export default function TitleSync() {
   const location = useLocation();

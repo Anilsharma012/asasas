@@ -1,32 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  Car,
-  Building2,
-  Smartphone,
-  Briefcase,
-  Shirt,
-  Bike,
-  Tv,
-  Truck,
-  Sofa,
-  Heart,
-} from "lucide-react";
+import { Users, User, Baby, Heart } from "lucide-react";
 import { withApiErrorBoundary } from "./ApiErrorBoundary";
 import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
 
-/* ---------- Icons map (fallback to Building2) ---------- */
+/* ---------- Icons map (fallback to Heart) ---------- */
 const categoryIcons: Record<string, any> = {
-  Cars: Car,
-  Properties: Building2,
-  Mobiles: Smartphone,
-  Jobs: Briefcase,
-  Fashion: Shirt,
-  Bikes: Bike,
-  "Electronics & Appliances": Tv,
-  "Commercial Vehicles & Spares": Truck,
-  Furniture: Sofa,
-  Pets: Heart,
+  Men: Users,
+  Women: User,
+  Kids: Baby,
+  Marco: Heart,
 };
 
 /* ---------- Types ---------- */
@@ -56,24 +39,17 @@ const isMatch = (cat: Category, ...candidates: string[]) => {
 
 /** Special routes for specific category names/slugs */
 const ROUTE_OVERRIDES: Record<string, string> = {
-  "new-projects": "/new-projects",
-  maps: "/maps",
-  buy: "/buy",
-
-  sell: "/post-property",
-  rent: "/rent",
-  lease: "/lease",
-  "co-living": "/co-living",
-  agricultural: "/agricultural",
-  commercial: "/commercial",
-  "other-services": "/other-services/other-services",
+  men: "/men",
+  women: "/women",
+  kids: "/kids",
+  marco: "/marco-fashion",
 };
 
-/** Ye 3 categories hamesha show honi chahiye */
+/** Fashion categories that should always show */
 const MUST_HAVE_CATEGORIES: { name: string; slug: string }[] = [
-  { name: "Other Services", slug: "other-services" },
-  { name: "Maps", slug: "maps" },
-  { name: "New Projects", slug: "new-projects" },
+  { name: "Men", slug: "men" },
+  { name: "Women", slug: "women" },
+  { name: "Kids", slug: "kids" },
 ];
 
 /* ---------- Component ---------- */
@@ -168,7 +144,7 @@ function OLXStyleCategories() {
     navigate(`/${finalSlug}`);
   };
 
-  const handleSellClick = () => navigate("/post-property");
+  const handleSellClick = () => navigate("/sell-item");
 
   /* ---------- Loading skeleton ---------- */
   if (loading) {
@@ -196,13 +172,11 @@ function OLXStyleCategories() {
           {(categories || []).map((category, index) => {
             if (!category?.name) return null;
 
-            const IconComponent =
-              categoryIcons[category.name] || Building2;
+            const IconComponent = categoryIcons[category.name] || Heart;
             const isActive = activeCat?.slug === category.slug;
 
             const isSell =
-              norm(category.slug) === "sell" ||
-              norm(category.name) === "sell";
+              norm(category.slug) === "sell" || norm(category.name) === "sell";
 
             return (
               <div
@@ -221,10 +195,10 @@ function OLXStyleCategories() {
               >
                 <div
                   className={`w-14 h-14 ${
-                    isActive ? "bg-red-100" : "bg-red-50"
-                  } border border-red-100 rounded-lg flex items-center justify-center mb-2 hover:bg-red-100 transition-colors`}
+                    isActive ? "bg-gray-200" : "bg-gray-100"
+                  } border border-gray-200 rounded-lg flex items-center justify-center mb-2 hover:bg-gray-200 transition-colors`}
                 >
-                  <IconComponent className="h-7 w-7 text-[#C70000]" />
+                  <IconComponent className="h-7 w-7 text-gray-800" />
                 </div>
                 <span className="text-xs text-gray-800 text-center font-medium leading-tight">
                   {category.name.length > 12

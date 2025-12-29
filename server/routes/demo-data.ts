@@ -1,0 +1,233 @@
+/**
+ * Demo Data for Marco Fashion
+ * Used when database is unavailable
+ */
+
+export const DEMO_CATEGORIES = [
+  {
+    _id: "cat_001",
+    name: "Men",
+    slug: "men",
+    icon: "👨",
+    description: "Men's Fashion Collection",
+    isActive: true,
+    sortOrder: 1,
+    subcategories: [
+      {
+        _id: "subcat_001",
+        name: "Shirts",
+        slug: "shirts",
+        description: "Men's Shirts",
+        isActive: true,
+      },
+      {
+        _id: "subcat_002",
+        name: "Pants",
+        slug: "pants",
+        description: "Men's Pants",
+        isActive: true,
+      },
+      {
+        _id: "subcat_003",
+        name: "T-Shirts",
+        slug: "t-shirts",
+        description: "Men's T-Shirts",
+        isActive: true,
+      },
+    ],
+  },
+  {
+    _id: "cat_002",
+    name: "Women",
+    slug: "women",
+    icon: "👩",
+    description: "Women's Fashion Collection",
+    isActive: true,
+    sortOrder: 2,
+    subcategories: [
+      {
+        _id: "subcat_004",
+        name: "Sarees",
+        slug: "sarees",
+        description: "Traditional Sarees",
+        isActive: true,
+      },
+      {
+        _id: "subcat_005",
+        name: "Kurtis",
+        slug: "kurtis",
+        description: "Women's Kurtis",
+        isActive: true,
+      },
+      {
+        _id: "subcat_006",
+        name: "Jeans",
+        slug: "jeans",
+        description: "Women's Jeans",
+        isActive: true,
+      },
+    ],
+  },
+  {
+    _id: "cat_003",
+    name: "Kids",
+    slug: "kids",
+    icon: "👶",
+    description: "Kids Fashion Collection",
+    isActive: true,
+    sortOrder: 3,
+    subcategories: [
+      {
+        _id: "subcat_007",
+        name: "Boys",
+        slug: "boys",
+        description: "Boys Clothing",
+        isActive: true,
+      },
+      {
+        _id: "subcat_008",
+        name: "Girls",
+        slug: "girls",
+        description: "Girls Clothing",
+        isActive: true,
+      },
+    ],
+  },
+];
+
+export const DEMO_PROPERTIES = [
+  {
+    _id: "prop_001",
+    title: "Premium Cotton T-Shirt",
+    slug: "premium-cotton-tshirt",
+    category: "Men",
+    subCategory: "T-Shirts",
+    price: 499,
+    description: "Comfortable and stylish 100% cotton t-shirt",
+    images: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+    ],
+    premium: true,
+    featured: true,
+    status: "active",
+    approvalStatus: "approved",
+  },
+  {
+    _id: "prop_002",
+    title: "Elegant Saree",
+    slug: "elegant-saree",
+    category: "Women",
+    subCategory: "Sarees",
+    price: 2499,
+    description: "Beautiful traditional saree with modern designs",
+    images: [
+      "https://images.unsplash.com/photo-1630638139973-dddcfaaed454?w=500",
+    ],
+    premium: true,
+    featured: true,
+    status: "active",
+    approvalStatus: "approved",
+  },
+  {
+    _id: "prop_003",
+    title: "Kids Casual Wear",
+    slug: "kids-casual-wear",
+    category: "Kids",
+    subCategory: "Boys",
+    price: 599,
+    description: "Cute and playful casual wear for kids",
+    images: [
+      "https://images.unsplash.com/photo-1518006675773-f6b0256c8386?w=500",
+    ],
+    premium: true,
+    featured: true,
+    status: "active",
+    approvalStatus: "approved",
+  },
+  {
+    _id: "prop_004",
+    title: "Classic Denim Jeans",
+    slug: "classic-denim-jeans",
+    category: "Men",
+    subCategory: "Pants",
+    price: 1299,
+    description: "Stylish and durable denim jeans",
+    images: ["https://images.unsplash.com/photo-1542272604-787c62d465d1?w=500"],
+    status: "active",
+    approvalStatus: "approved",
+  },
+  {
+    _id: "prop_005",
+    title: "Women's Casual Dress",
+    slug: "womens-casual-dress",
+    category: "Women",
+    subCategory: "Kurtis",
+    price: 799,
+    description: "Comfortable and fashionable casual dress",
+    images: [
+      "https://images.unsplash.com/photo-1595777384481-189e3c8a2b61?w=500",
+    ],
+    status: "active",
+    approvalStatus: "approved",
+  },
+];
+
+export const DEMO_PACKAGES = [
+  {
+    _id: "pkg_001",
+    name: "Basic",
+    description: "Perfect for new sellers",
+    price: 299,
+    duration: 7,
+    isActive: true,
+    features: ["5 Featured Listings", "Basic Support", "Standard Visibility"],
+  },
+  {
+    _id: "pkg_002",
+    name: "Premium",
+    description: "For growing businesses",
+    price: 799,
+    duration: 30,
+    isActive: true,
+    features: [
+      "20 Featured Listings",
+      "Priority Support",
+      "Enhanced Visibility",
+      "Advanced Analytics",
+    ],
+  },
+  {
+    _id: "pkg_003",
+    name: "Elite",
+    description: "Maximum exposure",
+    price: 1999,
+    duration: 30,
+    isActive: true,
+    features: [
+      "Unlimited Listings",
+      "24/7 Support",
+      "Premium Placement",
+      "Analytics Dashboard",
+      "Marketing Tools",
+    ],
+  },
+];
+
+export const DEMO_BANNERS = [
+  {
+    _id: "banner_001",
+    title: "Marco Fashion Sale",
+    position: "homepage_hero",
+    imageUrl:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
+    isActive: true,
+  },
+  {
+    _id: "banner_002",
+    title: "New Collection",
+    position: "homepage_middle",
+    imageUrl:
+      "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1200",
+    isActive: true,
+  },
+];
